@@ -7,7 +7,7 @@ public static class Service
 {
    public static AudioManager AudioManager;
    
-   public static PlayerManager PlayerManager;
+   public static PlayerManager2D PlayerManager;
    
    public static LevelManager LevelManager;
 }

@@ -8,10 +8,10 @@ public class PlayerManager2D : MonoBehaviour
     {
         if (singleItem)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //Debug.DrawRay(ray.origin ,ray.direction , Color.red);
-            RaycastHit2D hit;
-            if (Physics2D.Raycast(ray, out hit, int.MaxValue))
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, int.MaxValue))
             {
                 return hit;
             }
