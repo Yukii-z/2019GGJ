@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharpterManager: MonoBehaviour
+public class LevelManager: MonoBehaviour
 {
-     public enum Charpter
+     public enum Level
      {
       
      }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Recipt : MonoBehaviour, IDr
+public class Recipt : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
