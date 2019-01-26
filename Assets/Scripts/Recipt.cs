@@ -7,16 +7,17 @@ using Utility;
 public class Recipt : MonoBehaviour
 {
     private int frontMostZ = 0;
+    private Material blurEffect;
+    private Material defaultEffect;
     private void Awake()
     {
+        blurEffect = Resources.Load<Material>("BlurImage");
+        defaultEffect = this.GetComponent<SpriteRenderer>().material;
+        this.GetComponent<SpriteRenderer>().material = blurEffect;
         Debug.Log("test");
+        Debug.Log(blurEffect);
     }
 
-    public void MouseAbove()
-        {
-            //TODO
-            //what happens when mouse is above
-        }
 
     private void Update()
     {
@@ -39,10 +40,19 @@ public class Recipt : MonoBehaviour
         // Debug.Log("OnMouseDown test!!");
     }
 
-    void OnMouseOver() {
+     private void OnMouseOver()
+        {
+            this.GetComponent<SpriteRenderer>().material = defaultEffect;
+        }
+     
+    void OnMouseExit()
+    {
+        this.GetComponent<SpriteRenderer>().material = blurEffect;
         // Debug.Log("OnMouseOver test!!");
     }
-    
+
+   
+
     public void ZoomIn()
     {
         //TODO
