@@ -11,8 +11,12 @@ public class AudioManager : MonoBehaviour
         audioManaObj = GameObject.Find("AudioManager");
     }
 
-    public void PlaySound(GameObject objMakeSound = audioManaObj, AudioClip audioClip, bool loop=false)
+    public void PlaySound(AudioClip audioClip, bool loop=false, GameObject objMakeSound = null)
     {
+        if (objMakeSound == null) {
+            objMakeSound = audioManaObj;
+        }
+        
         //set new game object
         GameObject newAudio = new GameObject("newAudio");
         newAudio.transform.parent = objMakeSound.transform;
