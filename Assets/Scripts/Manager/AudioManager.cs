@@ -5,11 +5,17 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public void PlaySound(AudioClip audioClip, bool loop=false)
+    public GameObject audioManaObj;
+    void Awake()
+    {
+        audioManaObj = GameObject.Find("AudioManager");
+    }
+
+    public void PlaySound(GameObject objMakeSound = audioManaObj, AudioClip audioClip, bool loop=false)
     {
         //set new game object
         GameObject newAudio = new GameObject("newAudio");
-        newAudio.transform.parent = this.transform;
+        newAudio.transform.parent = objMakeSound.transform;
         //play audio
         newAudio.AddComponent<AudioSource>();
         AudioSource audioSource = newAudio.GetComponent<AudioSource>();
@@ -17,12 +23,12 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = loop;
         audioSource.Play();
         //distroy audio object
-        StartCoroutine(waitAndDestroyAudio(audioClip.length), newAudio);
+        StartCoroutine(waitAndDestroyAudio(audioClip.length, newAudio));
     }
 
     IEnumerator waitAndDestroyAudio(float waitTime, GameObject newAudio)
     {
-        yield return new WaitForSeconds(waitTime * 2.0);
+        yield return new WaitForSeconds(waitTime * 2.0f);
         Destroy(newAudio);
     }
     
