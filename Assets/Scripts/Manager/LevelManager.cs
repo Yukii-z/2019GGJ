@@ -8,21 +8,5 @@ public class LevelManager: MonoBehaviour
      {
       
      }
-
-     public void ChangeCharpter()
-     {
-          //TODO
-     }
-
-     public void EndCharpter()
-     {
-          //TODO
-     }
-
-     public void NextCharpter()
-     {
-          //TODO
-     }
-     
      
 }

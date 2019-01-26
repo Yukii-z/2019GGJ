@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Recipt : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void MouseAbove()
+        {
+            //TODO
+            //what happens when mouse is above
+        }
+    
+    public void DragItem()
     {
-        
+        //TODO
+    }
+    
+    public void ZoomIn()
+    {
+        //TODO
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FlipItemThatZoomedIn()
     {
-        
+        //TODO
     }
 }
