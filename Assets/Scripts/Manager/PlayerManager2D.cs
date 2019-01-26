@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class PlayerManager2D : MonoBehaviour
 {
-    GameObject[] RayCast(bool singleItem=true)
+    GameObject RayCast(bool singleItem=true)
     {
         if (singleItem)
         {
-            Ray ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Debug.DrawRay(ray.origin ,ray.direction , Color.red);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, int.MaxValue))
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null)
             {
-                return hit;
+                return hit.collider.gameObject;
             }
+            else
+            {
+                return null;
+            }  
+        }
+        else
+        {
+            return null;
         }
     }
 
