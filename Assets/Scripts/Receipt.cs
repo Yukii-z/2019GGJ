@@ -11,7 +11,7 @@ public class Receipt : MonoBehaviour
     private int frontMostZ = 0;
     private Material blurEffect;
     private Material defaultEffect;
-    private float zoomScale = 0.3f;
+    public float zoomScale = 0.3f;
     private void Awake()
     {
         gameObject.AddComponent<BoxCollider2D>();

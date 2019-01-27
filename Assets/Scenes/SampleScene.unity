@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiptManager: {fileID: 0}
+  zoomScale: 0.35
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiptManager: {fileID: 0}
+  zoomScale: 0.3
 --- !u!212 &689236566
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -912,6 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiptManager: {fileID: 0}
+  zoomScale: 0.3
 --- !u!61 &1695517439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1031,6 +1034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiptManager: {fileID: 0}
+  zoomScale: 0.7
 --- !u!1 &1848609838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,3 +1128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiptManager: {fileID: 0}
+  zoomScale: 0.4
