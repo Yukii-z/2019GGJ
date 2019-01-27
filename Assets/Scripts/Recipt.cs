@@ -6,7 +6,7 @@ using Utility;
 
 public class Recipt : MonoBehaviour
 {
-    private ReceiptManager receiptManager;
+    public GameObject receiptManager;
     private int frontMostZ = 0;
     private Material blurEffect;
     private Material defaultEffect;
@@ -14,9 +14,8 @@ public class Recipt : MonoBehaviour
     {
         blurEffect = Resources.Load<Material>("BlurImage");
         defaultEffect = this.GetComponent<SpriteRenderer>().material;
-        receiptManager = GameObject.FindGameObjectWithTag("ReceiptManager").GetComponent<ReceiptManager>();
-        Debug.Log("receipt manager" + receiptManager.ToString());
         this.GetComponent<SpriteRenderer>().material = blurEffect;
+        receiptManager = GameObject.FindGameObjectWithTag("ReceiptManager");
         Debug.Log("test");
         Debug.Log(blurEffect);
     }
@@ -43,9 +42,9 @@ public class Recipt : MonoBehaviour
         // Debug.Log("OnMouseDown test!!");
     }
 
-     private void OnMouseOver()
+    void OnMouseOver()
         {
-            // receiptManager.BringReceiptToForeground(this.gameObject);
+            receiptManager.GetComponent<ReceiptManager>().BringReceiptToForeground(this.gameObject);
             this.GetComponent<SpriteRenderer>().material = defaultEffect;
             if (Input.GetMouseButtonDown(1))
             {

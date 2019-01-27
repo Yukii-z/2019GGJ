@@ -19,18 +19,17 @@ public class ReceiptManager : MonoBehaviour
 
     public void BringReceiptToForeground(GameObject receiptInParticular) {
         ZeroOutReceiptLayers();
-        Vector3 v3 = receiptInParticular.transform.localPosition;
+        Vector3 v3 = receiptInParticular.transform.position;
         v3.z = -1; // foreground
-        Library.SetPosition3D(receiptInParticular, v3);
+        receiptInParticular.transform.position = v3;
     }
 
     // make all z-index 0
     void ZeroOutReceiptLayers() {
         foreach (GameObject go in Receipts) {
-            Vector3 v3 = go.transform.localPosition;
+            Vector3 v3 = go.transform.position;
             v3.z = 0; // neutral
-            Debug.Log("Zero Out v3 x:" + v3.x + " y:" + v3.y + " z:" + v3.z);
-            Library.SetPosition3D(go, v3);
+            go.transform.position = v3;
         }
     }
 }
