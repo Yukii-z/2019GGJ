@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 
-public class ReceiptManager :MonoSingleton<ReceiptManager>
+public class ReceiptManager : MonoBehaviour
 {
     public GameObject[] Receipts;
 
