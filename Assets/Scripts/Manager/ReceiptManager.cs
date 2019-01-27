@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 
-public class ReceiptManager : MonoBehaviour
+public class ReceiptManager : MonoSingleton<ReceiptManager>
 {
     public GameObject[] Receipts;
 
