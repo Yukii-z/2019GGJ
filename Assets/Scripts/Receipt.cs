@@ -38,7 +38,7 @@ public class Receipt : MonoBehaviour
         Vector2 curScreenPoint = Camera.main.ScreenToWorldPoint(
             new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         Debug.Log("Dragging to mouse point: X:" + curScreenPoint.x + " Y: " + curScreenPoint.y);
-        Library.SetPosition2D(this.gameObject, curScreenPoint);
+        Library.SetPosition2DwithoutRotation(this.gameObject, curScreenPoint);
     }
 
     void OnMouseDown() {

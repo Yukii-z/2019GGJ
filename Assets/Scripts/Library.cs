@@ -9,12 +9,23 @@ namespace Utility {
 			go.transform.SetPositionAndRotation(new Vector3(v2.x, v2.y, 0), Quaternion.identity);
 		}
 
+		public static void SetPosition2DwithoutRotation(GameObject go, Vector2 v2)
+		{
+			Quaternion r4 = go.transform.rotation;
+			go.transform.SetPositionAndRotation(new Vector3(v2.x, v2.y, 0), r4);
+		}
 		public static void SetPosition2D(GameObject go, float x, float y) {
 			go.transform.SetPositionAndRotation(new Vector3(x, y, 0), Quaternion.identity);
 		}
 
 		public static void SetPosition3D(GameObject go, Vector3 v3) {
 			go.transform.SetPositionAndRotation(new Vector3(v3.x, v3.y, v3.z), Quaternion.identity);
+		}
+
+		public static void SetPosition3DWithoutSetRotation(GameObject go, Vector3 v3)
+		{
+			Quaternion r4 = go.transform.rotation;
+			go.transform.SetPositionAndRotation(new Vector3(v3.x, v3.y, v3.z), r4);
 		}
 		public static void SetPosition3D(GameObject go, float x, float y, float z) {
 			go.transform.SetPositionAndRotation(new Vector3(x, y, z), Quaternion.identity);
