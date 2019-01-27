@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using Utility;
 
-public class Recipt : MonoBehaviour
+public class Receipt : MonoBehaviour
 {
     private ReceiptManager receiptManager;
     private int frontMostZ = 0;
