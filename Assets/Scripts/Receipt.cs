@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Receipt : MonoBehaviour
 {
     public GameObject receiptManager;
+    public int SceneNum = 0;
     private int frontMostZ = 0;
     private Material blurEffect;
     private Material defaultEffect;
