@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using Utility;
+using UnityEngine.UI;
 
 public class Receipt : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Receipt : MonoBehaviour
     private int frontMostZ = 0;
     private Material blurEffect;
     private Material defaultEffect;
+    private float zoomScale = 2.0f;
     private void Awake()
     {
         blurEffect = Resources.Load<Material>("BlurImage");
@@ -49,7 +51,7 @@ public class Receipt : MonoBehaviour
             this.GetComponent<SpriteRenderer>().material = defaultEffect;
             if (Input.GetMouseButtonDown(1))
             {
-                //ZoomIn();
+                ZoomIn();
             }
         }
      
@@ -61,12 +63,31 @@ public class Receipt : MonoBehaviour
 
    
 
-    /*public void ZoomIn()
+    public void ZoomIn()
     {
-        //set all recipts unseeable for raycast
-        GameObject 
-        if()
-    }*/
+        //set all receipts unseeable for raycast
+        foreach (GameObject go in ReceiptManager.Instance.Receipts)
+        {
+            go.layer = 2;
+        }
+        //the screen goes dark
+        GameObject darkScreenPic = GameObject.Find("DarkBackground");
+        SpriteEffect effect = darkScreenPic.AddComponent<SpriteEffect>();
+        effect.numberAssignment(5f, SpriteEffect.EffectType.ShowSomeImage);
+        //creat a copy in UI layer
+        Sprite receiptSprite = GetComponent<SpriteRenderer>().sprite;
+        GameObject zoomInObj = Instantiate(Resources.Load<GameObject>("Prefab/ZoomInImage"),darkScreenPic.transform.parent);
+        zoomInObj.GetComponent<Image>().sprite = receiptSprite;
+        zoomInObj.GetComponent<Image>().SetNativeSize();
+        zoomInObj.transform.localScale = zoomScale * zoomInObj.transform.localScale;
+        StartCoroutine(waitAndAddCanvasImage(0.5f, zoomInObj));
+    }
+    
+    IEnumerator waitAndAddCanvasImage(float waitTime, GameObject zoomInObj)
+    {
+        yield return new WaitForSeconds(waitTime);
+        zoomInObj.AddComponent<CanvasImage>();
+    }
 
     public void FlipItemThatZoomedIn()
     {

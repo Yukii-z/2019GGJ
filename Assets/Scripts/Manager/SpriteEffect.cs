@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpriteEffect : MonoBehaviour
 {
@@ -23,6 +24,19 @@ public class SpriteEffect : MonoBehaviour
         speed = inputSpeed;
         effect = inputEffect;
     }
+
+    private void Awake()
+    {
+        SpriteEffect[] effectNum = GetComponents<SpriteEffect>();
+        if (effectNum.Length != 1)
+        {
+            for (int i = 0; i < effectNum.Length - 1; i++)
+            {
+                Destroy(effectNum[i]);
+            }
+        }
+    }
+
     private void Update()
     {
         if (effectStart)
@@ -44,43 +58,43 @@ public class SpriteEffect : MonoBehaviour
         }
     }
 
-    public void FadeImage(float speed)
+    void FadeImage(float speed)
     {
-        Color newColor = this.GetComponent<SpriteRenderer>().color;
+        Color newColor = this.GetComponent<Image>().color;
         newColor.a = Mathf.Lerp(newColor.a, 0f, speed * Time.deltaTime);
-        this.GetComponent<SpriteRenderer>().color = newColor;
+        this.GetComponent<Image>().color = newColor;
         if (newColor.a < 0.01f)
         {
             newColor.a = 0f;
-            this.GetComponent<SpriteRenderer>().color = newColor;
+            this.GetComponent<Image>().color = newColor;
             effectStart = !effectStart;
             Destroy(this);
         }
     }
     
-    public void ShowImage(float speed)
+    void ShowImage(float speed)
     {
-        Color newColor = this.GetComponent<SpriteRenderer>().color;
+        Color newColor = this.GetComponent<Image>().color;
         newColor.a = Mathf.Lerp(newColor.a, 1f, speed * Time.deltaTime);
-        this.GetComponent<SpriteRenderer>().color = newColor;
+        this.GetComponent<Image>().color = newColor;
         if (newColor.a >0.99f)
         {
             newColor.a = 1f;
-            this.GetComponent<SpriteRenderer>().color = newColor;
+            this.GetComponent<Image>().color = newColor;
             effectStart = !effectStart;
             Destroy(this);
         }
     }
     
-    public void ShowSomeImage(float speed, float degree)
+    void ShowSomeImage(float speed, float degree)
     {
-        Color newColor = this.GetComponent<SpriteRenderer>().color;
+        Color newColor = this.GetComponent<Image>().color;
         newColor.a = Mathf.Lerp(newColor.a, degree, speed * Time.deltaTime);
-        this.GetComponent<SpriteRenderer>().color = newColor;
+        this.GetComponent<Image>().color = newColor;
         if (Mathf.Abs(degree-newColor.a)<0.01f)
         {
             newColor.a = degree;
-            this.GetComponent<SpriteRenderer>().color = newColor;
+            this.GetComponent<Image>().color = newColor;
             effectStart = !effectStart;
             Destroy(this);
         }
