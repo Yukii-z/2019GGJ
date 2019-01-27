@@ -20,6 +20,10 @@ namespace Utility {
 			go.transform.SetPositionAndRotation(new Vector3(x, y, z), Quaternion.identity);
 		}
 
+		public static Vector3 MultiplyVector3(Vector3 v3, float multiplier) {
+			return new Vector3(v3.x * multiplier, v3.y * multiplier, v3.z * multiplier);
+		}
+
 		// public static void SetPosition3D(GameObject go, Vector3 v3)
 		// public static void SetPosition3D(GameObject go, float x, float y, float z)
 
