@@ -6,8 +6,11 @@
     <e p="D:\Game Dev-NYU\Global" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="ChangeScene.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CanvasImage.cs" t="Include" />
+          <e p="ChangeNextScene.cs" t="Include" />
+          <e p="ChangePreviousScene.cs" t="Include" />
           <e p="Library.cs" t="Include" />
           <e p="Manager" t="Include">
             <e p="AudioManager.cs" t="Include" />
