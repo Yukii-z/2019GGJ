@@ -10,4 +10,6 @@ public static class Service
    public static PlayerManager2D PlayerManager;
    
    public static LevelManager LevelManager;
+
+   //public static ScreenEffectManager ScreenEffectManager;
 }

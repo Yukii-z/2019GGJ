@@ -47,6 +47,10 @@ public class Recipt : MonoBehaviour
         {
             // receiptManager.BringReceiptToForeground(this.gameObject);
             this.GetComponent<SpriteRenderer>().material = defaultEffect;
+            if (Input.GetMouseButtonDown(1))
+            {
+                //ZoomIn();
+            }
         }
      
     void OnMouseExit()
@@ -57,10 +61,12 @@ public class Recipt : MonoBehaviour
 
    
 
-    public void ZoomIn()
+    /*public void ZoomIn()
     {
-        //TODO
-    }
+        //set all recipts unseeable for raycast
+        GameObject 
+        if()
+    }*/
 
     public void FlipItemThatZoomedIn()
     {
